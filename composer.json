@@ -1,5 +1,5 @@
 {
-    "name": "omkar/paypal",
+    "name": "zehntech/paypal",
     "description": "This is for paypal adaptive payment(chained payments) package",
     "type": "library",
     "license": "MIT",
@@ -13,13 +13,13 @@
     "require": {},
 	"autoload": {
     "psr-4": {
-        "Omkar\\Paypal\\": "src/"
+        "Zehntech\\Paypal\\": "src/"
     }
 	},
 	"extra": {
 		"laravel": {
 			"providers": [
-				"Omkar\\Paypal\\PaypalServiceProvider"
+				"Zehntech\\Paypal\\PaypalServiceProvider"
 			]
 		}
 	}
