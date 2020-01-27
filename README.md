@@ -1,14 +1,6 @@
-# Laravel PayPal
-
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/srmklive/paypal.svg?style=flat-square)](https://packagist.org/packages/srmklive/paypal)
-[![Total Downloads](https://img.shields.io/packagist/dt/srmklive/paypal.svg?style=flat-square)](https://packagist.org/packages/srmklive/paypal)
-[![StyleCI](https://styleci.io/repos/43671533/shield?style=flat)](https://styleci.io/repos/43671533)
-[![Code Quality](https://scrutinizer-ci.com/g/srmklive/laravel-paypal/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/srmklive/laravel-paypal/?branch=master)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/5f21a940-9d60-4d33-84ce-e367a253cce3/small.png)](https://insight.sensiolabs.com/projects/5f21a940-9d60-4d33-84ce-e367a253cce3)
+# Laravel PayPal (Chained and express checkout)
 
 - [Introduction](#introduction)
-- [Demo Application](#demo-application)
 - [PayPal API Credentials](#paypal-api-credentials)
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -29,11 +21,11 @@
     - [UpdateRecurringPaymentsProfile](#usage-ec-updaterecurringprofile)
     - [ManageRecurringPaymentsProfileStatus](#usage-ec-managerecurringprofile)
   - [Adaptive Payments](#usage-adaptive-payments)
-    - [Pay](#usage-adaptive-pay)
+    - [Pay Primary](#usage-adaptive-pay)
+	- [Pay Secondary](#usage-adaptive-secondary)
 - [Handling PayPal IPN](#paypalipn)
 - [Creating Subscriptions](#create-subscriptions)
 - [Support](#support)
-- [PayPal Documentation](https://github.com/srmklive/laravel-paypal/blob/master/PAYPALDOCS.md)
 
     
 <a name="introduction"></a>
@@ -43,14 +35,8 @@ By using this plugin you can process or refund payments and handle IPN (Instant 
 
 **Currently only PayPal Express Checkout API Is Supported.**
 
-<a name="demo-application"></a>
-## Demo Application
-
-Demo Application:
-https://laravel-paypal-demo.srmk.info/
-
 Github repo
-https://github.com/srmklive/laravel-paypal-demo
+https://github.com/osingh152/paypal
 
 <a name="paypal-api-credentials"></a>
 ## PayPal API Credentials
@@ -65,25 +51,25 @@ https://developer.paypal.com/docs/classic/api/apiCredentials/#create-an-api-sign
 * Use following command to install:
 
 ```bash
-composer require srmklive/paypal:~1.0
+composer require zehntech/paypal
 ```
 
 * Add the service provider to your `$providers` array in `config/app.php` file like: 
 
 ```php
-Srmklive\PayPal\Providers\PayPalServiceProvider::class
+Zehntech\Paypal\Providers\PayPalServiceProvider::class
 ```
 
 * Add the alias to your `$aliases` array in `config/app.php` file like: 
 
 ```php
-'PayPal' => Srmklive\PayPal\Facades\PayPal::class
+'PayPal' => Zehntech\PayPal\Facades\PayPal::class
 ```
 
 * Run the following command to publish configuration:
 
 ```bash
-php artisan vendor:publish --provider "Srmklive\PayPal\Providers\PayPalServiceProvider"
+php artisan vendor:publish --provider "Zehntech\Paypal\Providers\PayPalServiceProvider"
 ```
 
 <a name="configuration"></a>
@@ -348,7 +334,7 @@ PayPal::setProvider('adaptive_payments');
 ```
 
 <a name="usage-adaptive-pay"></a>
-* **Pay**
+* **Pay Primary**
 
 ```php
 
@@ -366,6 +352,7 @@ $data = [
             'primary' => false
         ]
     ],
+	'action_type' => 'PAY_PRIMARY',
     'payer' => 'EACHRECEIVER', // (Optional) Describes who pays PayPal fees. Allowed values are: 'SENDER', 'PRIMARYRECEIVER', 'EACHRECEIVER' (Default), 'SECONDARYONLY'
     'return_url' => url('payment/success'), 
     'cancel_url' => url('payment/cancel'),
@@ -384,6 +371,17 @@ Next, you need to redirect the user to PayPal to authorize the payment
 $redirect_url = $provider->getRedirectUrl('approved', $response['payKey']);
 
 return redirect($redirect_url);
+```
+<a name="usage-adaptive-secondary"></a>
+* **Pay Secondary**
+
+```php
+
+// Change the values accordingly for your application
+
+$payKey='Your payment paykey';
+$actioType='Pay';
+$response = $provider->approvePayment($payKey, $actioType);
 ```
 
 <a name="paypalipn"></a>
@@ -478,7 +476,7 @@ $response = $provider->createYearlySubscription($token, $amount, $description);
 ## Support
 
 This plugin only supports Laravel 5.1 or greater.
-* In case of any issues, kindly create one on the [Issues](https://github.com/srmklive/laravel-paypal/issues) section.
+* In case of any issues, kindly create one on the [Issues](https://github.com/zehntech/laravel-paypal/issues) section.
 * If you would like to contribute:
   * Fork this repository.
   * Implement your features.
