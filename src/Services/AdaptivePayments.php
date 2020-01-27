@@ -1,8 +1,8 @@
 <?php
 
-namespace Omkar\Paypal\Services;
+namespace Zehntech\Paypal\Services;
 
-use Omkar\Paypal\Traits\PayPalRequest as PayPalAPIRequest;
+use Zehntech\Paypal\Traits\PayPalRequest as PayPalAPIRequest;
 
 class AdaptivePayments
 {

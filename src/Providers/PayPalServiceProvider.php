@@ -1,6 +1,6 @@
 <?php
 
-namespace Omkar\Paypal\Providers;
+namespace Zehntech\Paypal\Providers;
 
 /*
  * Class PayPalServiceProvider
@@ -8,8 +8,8 @@ namespace Omkar\Paypal\Providers;
  */
 
 use Illuminate\Support\ServiceProvider;
-use Omkar\Paypal\Services\AdaptivePayments;
-use Omkar\Paypal\Services\ExpressCheckout;
+use Zehntech\Paypal\Services\AdaptivePayments;
+use Zehntech\Paypal\Services\ExpressCheckout;
 
 class PayPalServiceProvider extends ServiceProvider
 {

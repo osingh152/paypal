@@ -1,9 +1,9 @@
 <?php
 
-namespace Omkar\Paypal;
+namespace Zehntech\Paypal;
 
-use Omkar\Paypal\Services\AdaptivePayments;
-use Omkar\Paypal\Services\ExpressCheckout;
+use Zehntech\Paypal\Services\AdaptivePayments;
+use Zehntech\Paypal\Services\ExpressCheckout;
 
 class PayPalFacadeAccessor
 {

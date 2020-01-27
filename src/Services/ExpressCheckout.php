@@ -1,11 +1,11 @@
 <?php
 
-namespace Omkar\Paypal\Services;
+namespace Zehntech\Paypal\Services;
 
 use Illuminate\Support\Collection;
-use Omkar\Paypal\Traits\PayPalRequest as PayPalAPIRequest;
-use Omkar\Paypal\Traits\PayPalTransactions;
-use Omkar\Paypal\Traits\RecurringProfiles;
+use Zehntech\Paypal\Traits\PayPalRequest as PayPalAPIRequest;
+use Zehntech\Paypal\Traits\PayPalTransactions;
+use Zehntech\Paypal\Traits\RecurringProfiles;
 
 class ExpressCheckout
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Omkar\Paypal\Facades;
+namespace Zehntech\Paypal\Facades;
 
 /*
  * Class Facade
@@ -19,6 +19,6 @@ class PayPal extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'Omkar\Paypal\PayPalFacadeAccessor';
+        return 'Zehntech\Paypal\PayPalFacadeAccessor';
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Omkar\Paypal\Traits;
+namespace Zehntech\Paypal\Traits;
 
 trait PayPalTransactions
 {

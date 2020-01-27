@@ -1,6 +1,6 @@
 <?php
 
-namespace Omkar\Paypal\Traits;
+namespace Zehntech\Paypal\Traits;
 
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\BadResponseException as HttpBadResponseException;
