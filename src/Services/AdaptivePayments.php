@@ -78,7 +78,7 @@ class AdaptivePayments
     private function setPayRequestDetails($data)
     {
         $this->post = $this->setRequestData([
-            'actionType'   => 'PAY',
+            'actionType'   => $data['action_type'],
             'currencyCode' => $this->currency,
             'receiverList' => [
                 'receiver' => $data['receivers'],
@@ -130,6 +130,15 @@ class AdaptivePayments
         ]);
 
         return $this->doPayPalRequest('SetPaymentOptions');
+    }
+    
+    public function approvePayment($payKey,$actionType){
+        $this->post = $this->setRequestData([
+            'requestEnvelope' => $this->setEnvelope(),
+            'payKey'          => $payKey,
+            'actionType' =>$actionType
+        ]);
+        return $this->doPayPalRequest('ExecutePayment');
     }
 
     /**

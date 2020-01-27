@@ -247,9 +247,9 @@ trait PayPalRequest
      */
     private function setApiProvider($credentials)
     {
-        if ($this instanceof \Srmklive\PayPal\Services\AdaptivePayments) {
+        if ($this instanceof \Zehntech\Paypal\Services\AdaptivePayments) {
             $this->setAdaptivePaymentsOptions();
-        } elseif ($this instanceof \Srmklive\PayPal\Services\ExpressCheckout) {
+        } elseif ($this instanceof \Zehntech\Paypal\Services\ExpressCheckout) {
             $this->setExpressCheckoutOptions($credentials);
         } else {
             throw new \Exception('Invalid api credentials provided for PayPal!. Please provide the right api credentials.');
