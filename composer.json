@@ -19,7 +19,7 @@
 	"extra": {
 		"laravel": {
 			"providers": [
-				"Zehntech\\Paypal\\Providers\\PaypalServiceProvider"
+				"Zehntech\\Paypal\\Providers\\PayPalServiceProvider"
 			],
 		    "aliases": {
 			 "Paypal": "Zehntech\\Paypal\\Facades\\PayPal"
