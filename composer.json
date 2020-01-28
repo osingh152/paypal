@@ -19,7 +19,7 @@
 	"extra": {
 		"laravel": {
 			"providers": [
-				"Zehntech\\Paypal\\Providers\\PaypalServiceProvider"
+				"Zehntech\\paypal\\Providers\\PaypalServiceProvider"
 			]
 		}
 	}
