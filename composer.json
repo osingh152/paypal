@@ -13,7 +13,7 @@
     "require": {},
 	"autoload": {
     "psr-4": {
-        "Zehntech\\paypal\\": "src/"
+        "Zehntech\\Paypal\\": "src/"
     }
 	},
 	"extra": {
